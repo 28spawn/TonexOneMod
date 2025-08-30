@@ -48,12 +48,17 @@ void ui_event_SettingsImage(lv_event_t * e);
 extern lv_obj_t * ui_SettingsImage;
 extern lv_obj_t * ui_TopPanel;
 extern lv_obj_t * ui_IKLogo;
+void ui_event_BTStatusConn(lv_event_t * e);
 extern lv_obj_t * ui_BTStatusConn;
 void ui_event_BTStatusDisconn(lv_event_t * e);
 extern lv_obj_t * ui_BTStatusDisconn;
+void ui_event_USBStatusOK(lv_event_t * e);
 extern lv_obj_t * ui_USBStatusOK;
+void ui_event_USBStatusFail(lv_event_t * e);
 extern lv_obj_t * ui_USBStatusFail;
+void ui_event_WiFiStatusConn(lv_event_t * e);
 extern lv_obj_t * ui_WiFiStatusConn;
+void ui_event_WiFiStatusDisconn(lv_event_t * e);
 extern lv_obj_t * ui_WiFiStatusDisconn;
 extern lv_obj_t * ui_ProjectHeadingLabel;
 extern lv_obj_t * ui_Skins;
@@ -76,6 +81,18 @@ extern lv_obj_t * ui_EntryKeyboard;
 void ui_event_OKTick(lv_event_t * e);
 extern lv_obj_t * ui_OKTick;
 // CUSTOM VARIABLES
+
+// SCREEN: ui_Connections
+void ui_Connections_screen_init(void);
+extern lv_obj_t * ui_Connections;
+void ui_event_HomeButton(lv_event_t * e);
+extern lv_obj_t * ui_HomeButton;
+extern lv_obj_t * ui_WiFiLabel;
+extern lv_obj_t * ui_WiFiSwitch;
+extern lv_obj_t * ui_BluetoothLabel;
+extern lv_obj_t * ui_BTSwitch;
+extern lv_obj_t * ui_USBLabel;
+extern lv_obj_t * ui_USBSwitch;
 
 // SCREEN: ui_Settings
 void ui_Settings_screen_init(void);
