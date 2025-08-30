@@ -181,7 +181,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_BTStatusConn, 301);
     lv_obj_set_y(ui_BTStatusConn, -2);
     lv_obj_set_align(ui_BTStatusConn, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_BTStatusConn, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_add_flag(ui_BTStatusConn, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST | LV_OBJ_FLAG_CLICKABLE);     /// Flags
     lv_obj_clear_flag(ui_BTStatusConn, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_BTStatusDisconn = lv_img_create(ui_TopPanel);
@@ -201,7 +201,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_USBStatusOK, 356);
     lv_obj_set_y(ui_USBStatusOK, -1);
     lv_obj_set_align(ui_USBStatusOK, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_USBStatusOK, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_add_flag(ui_USBStatusOK, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST | LV_OBJ_FLAG_CLICKABLE);     /// Flags
     lv_obj_clear_flag(ui_USBStatusOK, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_USBStatusFail = lv_img_create(ui_TopPanel);
@@ -211,7 +211,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_USBStatusFail, 356);
     lv_obj_set_y(ui_USBStatusFail, -1);
     lv_obj_set_align(ui_USBStatusFail, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_USBStatusFail, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_add_flag(ui_USBStatusFail, LV_OBJ_FLAG_ADV_HITTEST | LV_OBJ_FLAG_CLICKABLE);     /// Flags
     lv_obj_clear_flag(ui_USBStatusFail, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_WiFiStatusConn = lv_img_create(ui_TopPanel);
@@ -221,7 +221,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_WiFiStatusConn, 257);
     lv_obj_set_y(ui_WiFiStatusConn, 0);
     lv_obj_set_align(ui_WiFiStatusConn, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_WiFiStatusConn, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_add_flag(ui_WiFiStatusConn, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_ADV_HITTEST | LV_OBJ_FLAG_CLICKABLE);     /// Flags
     lv_obj_clear_flag(ui_WiFiStatusConn, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_WiFiStatusDisconn = lv_img_create(ui_TopPanel);
@@ -231,7 +231,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_WiFiStatusDisconn, 257);
     lv_obj_set_y(ui_WiFiStatusDisconn, 0);
     lv_obj_set_align(ui_WiFiStatusDisconn, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_WiFiStatusDisconn, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_add_flag(ui_WiFiStatusDisconn, LV_OBJ_FLAG_ADV_HITTEST | LV_OBJ_FLAG_CLICKABLE);     /// Flags
     lv_obj_clear_flag(ui_WiFiStatusDisconn, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
 
     ui_ProjectHeadingLabel = lv_label_create(ui_TopPanel);
@@ -414,7 +414,12 @@ void ui_Screen1_screen_init(void)
     lv_obj_add_event_cb(ui_IconDelay, ui_event_IconDelay, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_IconReverb, ui_event_IconReverb, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_SettingsImage, ui_event_SettingsImage, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_BTStatusConn, ui_event_BTStatusConn, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_BTStatusDisconn, ui_event_BTStatusDisconn, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_USBStatusOK, ui_event_USBStatusOK, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_USBStatusFail, ui_event_USBStatusFail, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_WiFiStatusConn, ui_event_WiFiStatusConn, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_WiFiStatusDisconn, ui_event_WiFiStatusDisconn, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_PresetHeadingLabel, ui_event_PresetHeadingLabel, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_PresetDetailsTextArea, ui_event_PresetDetailsTextArea, LV_EVENT_ALL, NULL);
     lv_obj_add_event_cb(ui_LeftArrow, ui_event_LeftArrow, LV_EVENT_ALL, NULL);

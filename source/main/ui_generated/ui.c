@@ -40,12 +40,17 @@ void ui_event_SettingsImage(lv_event_t * e);
 lv_obj_t * ui_SettingsImage;
 lv_obj_t * ui_TopPanel;
 lv_obj_t * ui_IKLogo;
+void ui_event_BTStatusConn(lv_event_t * e);
 lv_obj_t * ui_BTStatusConn;
 void ui_event_BTStatusDisconn(lv_event_t * e);
 lv_obj_t * ui_BTStatusDisconn;
+void ui_event_USBStatusOK(lv_event_t * e);
 lv_obj_t * ui_USBStatusOK;
+void ui_event_USBStatusFail(lv_event_t * e);
 lv_obj_t * ui_USBStatusFail;
+void ui_event_WiFiStatusConn(lv_event_t * e);
 lv_obj_t * ui_WiFiStatusConn;
+void ui_event_WiFiStatusDisconn(lv_event_t * e);
 lv_obj_t * ui_WiFiStatusDisconn;
 lv_obj_t * ui_ProjectHeadingLabel;
 lv_obj_t * ui_Skins;
@@ -67,6 +72,17 @@ void ui_event_EntryKeyboard(lv_event_t * e);
 lv_obj_t * ui_EntryKeyboard;
 void ui_event_OKTick(lv_event_t * e);
 lv_obj_t * ui_OKTick;
+// SCREEN: ui_Connections
+void ui_Connections_screen_init(void);
+lv_obj_t * ui_Connections;
+void ui_event_HomeButton(lv_event_t * e);
+lv_obj_t * ui_HomeButton;
+lv_obj_t * ui_WiFiLabel;
+lv_obj_t * ui_WiFiSwitch;
+lv_obj_t * ui_BluetoothLabel;
+lv_obj_t * ui_BTSwitch;
+lv_obj_t * ui_USBLabel;
+lv_obj_t * ui_USBSwitch;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_Settings
@@ -401,12 +417,59 @@ void ui_event_SettingsImage(lv_event_t * e)
     }
 }
 
-void ui_event_BTStatusDisconn(lv_event_t * e)
+void ui_event_BTStatusConn(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Connections, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Connections_screen_init);
+    }
+}
+
+void ui_event_BTStatusDisconn(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Connections, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Connections_screen_init);
+    }
     if(event_code == LV_EVENT_LONG_PRESSED) {
         BTBondsClearRequest(e);
+    }
+}
+
+void ui_event_USBStatusOK(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Connections, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Connections_screen_init);
+    }
+}
+
+void ui_event_USBStatusFail(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Connections, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Connections_screen_init);
+    }
+}
+
+void ui_event_WiFiStatusConn(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Connections, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Connections_screen_init);
+    }
+}
+
+void ui_event_WiFiStatusDisconn(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Connections, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Connections_screen_init);
     }
 }
 
@@ -964,6 +1027,15 @@ void ui_event_CloseImage(lv_event_t * e)
     }
 }
 
+void ui_event_HomeButton(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_Screen1_screen_init);
+    }
+}
+
 ///////////////////// SCREENS ////////////////////
 
 void ui_init(void)
@@ -974,6 +1046,7 @@ void ui_init(void)
     lv_disp_set_theme(dispp, theme);
     ui_Screen1_screen_init();
     ui_Settings_screen_init();
+    ui_Connections_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_Screen1);
 }
